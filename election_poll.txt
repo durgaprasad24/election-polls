@@ -1,0 +1,86 @@
+public class election_poll{
+ public static void main(String []args)
+{
+
+           string[] a=new string[]{"Jessy","Philip","Jessy","Philip"};
+            string[] b=new string[a.Length];
+            int[] c1 = new int[a.Length];
+            int c = 0, l = 0;
+            int n=a.Length;
+            for (int i = 0; i < a.Length; i++)
+            {
+                b[i] = a[i];
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (a[i] == a[j])
+                    {
+                        int s = j;
+                        for (int k = j + 1; k < n; k++, s++)
+                        {
+                            a[s] = a[k];
+                        }
+                        n--;
+                        j--;
+                    }
+                }
+            }
+
+            for (int i = 0; i < n; i++, l++)
+            {
+                for (int j = 0; j < b.Length; j++)
+                {
+                    if (a[i] == b[j])
+                    {
+                        c++;
+                    }
+
+                }
+                
+                    c1[l] = c;
+                    c = 0;
+    
+            }
+            for(int i=0;i<n;i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (c1[i]  > c1[j])
+                    {
+                        int t = c1[i];
+                        string x = a[i];
+                        c1[i] = c1[j];
+                        a[i] = a[j];
+                        c1[j] = t;
+                        a[j] = x;
+
+                    }
+
+                    }
+             }
+           
+            if (c1[0] == c1[1])
+            {
+                
+                string  r = a[0];
+                string  q = a[1];
+                char d = r[r.Length - 1];
+                char p = q[q.Length - 1];
+                if ((int)d > (int)p)
+                {
+                   System.out.println(a[0]+"wins");
+                }
+                else
+                {
+                    System.out.println(a[1]+"wins");
+                }
+
+            }
+            else
+                System.out.println(a[0]+"wins");
+            
+}
+}
